@@ -1,0 +1,13 @@
+services:
+  frontend:
+    build: .
+    container_name: project_f_frontend
+    env_file:
+      - .env
+    ports:
+      - "${VITE_PORT:-3000}:3000"
+    # bind source, but keep node_modules inside the container
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "3000"]
