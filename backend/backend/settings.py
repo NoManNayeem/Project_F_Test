@@ -14,7 +14,20 @@ DEBUG = os.getenv('DJANGO_DEBUG', 'False').lower() in ('true', '1', 'yes')
 
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost').split(',')
 
+
+# Allow all origins for CORS
 CORS_ALLOW_ALL_ORIGINS = True
+
+# (Optional) You can remove CORS_ALLOWED_ORIGINS if CORS_ALLOW_ALL_ORIGINS is True
+# CORS_ALLOWED_ORIGINS = [
+#     "https://prod-fe.examplesite.jp",
+# ]
+
+# Allow all origins for CSRF (only recommended in non-sensitive APIs)
+CSRF_TRUSTED_ORIGINS = [
+    "https://*",
+    "http://*",
+]
 
 
 # Application definition
